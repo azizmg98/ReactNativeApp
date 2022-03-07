@@ -1,16 +1,17 @@
-import { StyleSheet, Text, View, Button} from 'react-native'
-import React from 'react'
-import {observer} from 'mobx-react'
+import { NativeBaseProvider, Box } from "native-base";
+import { StyleSheet, Text, View, Button } from "react-native";
+import ShopList from './ShopList'
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View>
-      <Text>Home</Text>
-      <Button title='Hello'/>
+        {/* <Text>Home</Text>
+        <Button title="Hello this is a test" /> */}
+        <ShopList />
     </View>
-  )
-}
+  );
+};
 
-export default observer(Home)
+export default Home;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

@@ -10,9 +10,8 @@ class ShopStore {
 
   fetchShops = async () => {
     try {
-      const res = await instance.get("/products");
+      const res = await instance.get("/shops");
       this.shops = res.data;
-      console.log(this.shops);
     } catch (error) {
       console.log(error);
     }

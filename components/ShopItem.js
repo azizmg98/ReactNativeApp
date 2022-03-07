@@ -1,21 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import {observer} from 'mobx-react'
+import { StyleSheet, Text, View, Image } from "react-native";
+import { baseURL } from "../stores/instance";
 
-const ShopItem = ({shops, key}) => {
+const ShopItem = ({ shops }) => {
+  const imagePath = shops.image.replace("http://localhost:5000", `${baseURL}`);
+
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{shops.name}</Text>
-      {/* <Image style={styles.image} uri={shops.Image} /> */}
+      <Image
+        style={styles.image}
+        source={{
+          uri: baseURL + shops.Image,
+        }}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default observer(ShopItem)
+export default ShopItem;
 
 const styles = StyleSheet.create({
-    image: {
-        width:60,
-        height:60
-    }
-})
+  container: {
+    marginTop: 8,
+    backgroundColor: "aliceblue",
+  },
+  image: {
+    width: 60,
+    height: 60,
+    flexDirection: "column",
+  },
+});
